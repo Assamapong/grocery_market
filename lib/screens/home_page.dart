@@ -33,14 +33,78 @@ class HomeScreen extends StatelessWidget {
           children: [
             Row(
               children: [
-                Container(
-                  color: Colors.black,
+                Expanded(
+                  child: Container(
+                    height: 150,
+                    margin: EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30.0),
+                      color: Color.fromRGBO(236, 242, 211, 1),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          'Shopping List',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ShoppingListIcon(
+                              innerIcon: FontAwesomeIcons.breadSlice,
+                              colorIcon: Colors.lightGreen,
+                            ),
+                            ShoppingListIcon(
+                                innerIcon: FontAwesomeIcons.egg,
+                                colorIcon: Colors.brown),
+                            ShoppingListIcon(
+                                innerIcon: FontAwesomeIcons.carrot,
+                                colorIcon: Colors.orange),
+                            ShoppingListIcon(
+                                innerIcon: FontAwesomeIcons.cheese,
+                                colorIcon: Colors.yellow),
+                            ShoppingListIcon(
+                                innerIcon: FontAwesomeIcons.beerMugEmpty,
+                                colorIcon: Colors.blue)
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
                 )
               ],
             )
           ],
         ),
       ),
+    );
+  }
+}
+
+class ShoppingListIcon extends StatelessWidget {
+  final IconData innerIcon;
+  final Color colorIcon;
+
+  ShoppingListIcon({required this.innerIcon, required this.colorIcon});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Icon(
+        innerIcon,
+        color: colorIcon,
+      ),
+      width: 50,
+      height: 50,
+      decoration: BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+      margin: EdgeInsets.symmetric(horizontal: 10),
     );
   }
 }
