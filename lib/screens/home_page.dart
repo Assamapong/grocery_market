@@ -45,12 +45,21 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 20,
+                          height: 30,
                         ),
-                        Text(
-                          'Shopping List',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                        Padding(
+                          padding: EdgeInsets.only(left: 25.0),
+                          child: Row(
+                            children: [
+                              Text(
+                                'Shopping List',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                         SizedBox(
                           height: 20,
