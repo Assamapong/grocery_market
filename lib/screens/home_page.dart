@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:grocery_market/components/categories_section.dart';
-import 'package:grocery_market/components/category.dart';
+import 'package:grocery_market/components/categories/categories_section.dart';
+import 'package:grocery_market/components/categories/category.dart';
 import 'package:grocery_market/components/reusable_card.dart';
 
-import 'package:grocery_market/components/shopping_list.dart';
+import 'package:grocery_market/components/shopping_list/shopping_list.dart';
+import 'package:grocery_market/components/usually_buy_section.dart';
 
 class HomeScreen extends StatelessWidget {
   final String title;
@@ -38,9 +39,13 @@ class HomeScreen extends StatelessWidget {
           children: [
             ShoppingList(),
             SizedBox(
-              height: 15,
+              height: 20,
             ),
-            CategoriesSection()
+            CategoriesSection(),
+            SizedBox(
+              height: 20,
+            ),
+            UsuallyBuySection()
           ],
         ),
       ),

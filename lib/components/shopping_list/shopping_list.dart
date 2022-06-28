@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:grocery_market/components/shopping_list_icon.dart';
+import 'package:grocery_market/components/shopping_list/shopping_list_icon.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'reusable_card.dart';
+import '../reusable_card.dart';
 
 class ShoppingList extends StatelessWidget {
   @override
