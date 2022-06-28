@@ -5,6 +5,7 @@ import 'package:grocery_market/components/usually_buy/item_card.dart';
 
 class CategoryScreen extends StatelessWidget {
   static const id = 'category_screen';
+  final List<Widget> gridViewChild;
 
   final String title;
   final Map colorMap = {
@@ -14,7 +15,9 @@ class CategoryScreen extends StatelessWidget {
     'Vegetables': Colors.green
   };
 
-  CategoryScreen({required this.title});
+
+
+  CategoryScreen({required this.title, required this.gridViewChild});
 
   @override
   Widget build(BuildContext context) {
@@ -35,25 +38,12 @@ class CategoryScreen extends StatelessWidget {
           style: TextStyle(fontSize: 20, color: Colors.white),
         ),
       ),
-      body: GridView.count(
-        crossAxisCount: 2,
-        children: [
-          Container(
-            margin: EdgeInsets.all(10),
-            child: Column(
-              children: [
-                Image(
-                  image: AssetImage(
-                    'images/broccoli.webp',
-                  ),
-                  width: 150,
-                ),
-                Text('Broccoli'),
-                Text('1kg/1.6B'),
-              ],
-            ),
-          )
-        ],
+      body: Container(
+        margin: EdgeInsets.all(10),
+        child: GridView.count(
+          crossAxisCount: 2,
+          children: gridViewChild,
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:grocery_market/components/reusable_card.dart';
 import 'package:grocery_market/screens/category_screen.dart';
 
+import '../usually_buy/item_card.dart';
+
 class Category extends StatelessWidget {
   final Color categoryBackgroundColor;
   final IconData categoryIcon;
@@ -13,6 +15,34 @@ class Category extends StatelessWidget {
       required this.categoryIcon,
       required this.title,
       required this.iconColor});
+
+  final List vegetableList = [{"itemName": 'Broccoli', "itemSubtitle": "1kg/1.6B","itemImage": "images/broccoli.webp"}];
+  List<Widget> setUpCategoryScreen(){
+    List<Widget> gridViewChild = [];
+    List selectedList;
+    switch(title){
+      case 'Vegetables':
+        selectedList = vegetableList;
+        break;
+      default:
+        selectedList = [];
+        break;
+    }
+    for(var i = 0; i < selectedList.length; i++){
+
+      gridViewChild.add(ItemCard(
+        itemName: selectedList[i]["itemName"],
+        itemSubtitle: selectedList[i]["itemSubtitle"],
+        itemImage: AssetImage(
+          selectedList[i]["itemImage"],
+        ),
+      ),
+      );
+    }
+    return gridViewChild;
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -22,6 +52,7 @@ class Category extends StatelessWidget {
           MaterialPageRoute(
             builder: (context) => CategoryScreen(
               title: title,
+              gridViewChild: setUpCategoryScreen(),
             ),
           ),
         );
