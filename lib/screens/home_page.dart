@@ -32,11 +32,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          children: [
-            Row(
-              children: [ShoppingList()],
-            )
-          ],
+          children: [ShoppingList()],
         ),
       ),
     );
