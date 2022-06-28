@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:grocery_market/components/categories_section.dart';
 import 'package:grocery_market/components/category.dart';
 import 'package:grocery_market/components/reusable_card.dart';
 
@@ -39,104 +40,10 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
-            Row(
-              children: const [
-                Padding(
-                  padding: EdgeInsets.only(left: 35.0, right: 10),
-                  child: Text(
-                    'Categories',
-                    style: TextStyle(fontSize: 35),
-                  ),
-                ),
-                Icon(Icons.arrow_forward_ios)
-              ],
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 15),
-              height: 150,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  Category(
-                    categoryBackgroundColor: Color.fromRGBO(247, 221, 220, 1),
-                    categoryIcon: FontAwesomeIcons.bacon,
-                    title: 'Pork',
-                    iconColor: Colors.red,
-                  ),
-                  Category(
-                    categoryBackgroundColor: Color.fromRGBO(217, 230, 250, 1),
-                    categoryIcon: FontAwesomeIcons.fish,
-                    title: 'Fish',
-                    iconColor: Colors.blue,
-                  ),
-                  Category(
-                    categoryBackgroundColor: Color.fromRGBO(249, 227, 196, 1),
-                    categoryIcon: FontAwesomeIcons.breadSlice,
-                    title: 'Bread',
-                    iconColor: Colors.brown,
-                  ),
-                  Category(
-                    categoryBackgroundColor: Color.fromRGBO(236, 242, 211, 1),
-                    categoryIcon: FontAwesomeIcons.pepperHot,
-                    title: 'Vegetables',
-                    iconColor: Colors.green,
-                  ),
-                ],
-              ),
-            )
+            CategoriesSection()
           ],
         ),
       ),
     );
   }
 }
-
-// class MyHomePage extends StatefulWidget {
-//   const MyHomePage({Key? key, required this.title}) : super(key: key);
-//
-//   final String title;
-//
-//   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
-// }
-//
-// class _MyHomePageState extends State<MyHomePage> {
-//   int _counter = 0;
-//
-//   void _incrementCounter() {
-//     setState(() {
-//       _counter++;
-//     });
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text(widget.title),
-//       ),
-//       body: Center(
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: <Widget>[
-//             const Text(
-//               'You have pushed the button this many times:',
-//             ),
-//             Text(
-//               '$_counter',
-//               style: Theme.of(context).textTheme.headline4,
-//             ),
-//           ],
-//         ),
-//       ),
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: _incrementCounter,
-//         tooltip: 'Increment',
-//         child: const Icon(Icons.add),
-//       ), // This trailing comma makes auto-formatting nicer for build methods.
-//     );
-//   }
-// }
