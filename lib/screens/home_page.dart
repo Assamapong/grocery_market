@@ -55,6 +55,7 @@ class HomeScreen extends StatelessWidget {
               height: 15,
             ),
             Container(
+              margin: EdgeInsets.only(left: 15),
               height: 150,
               child: ListView(
                 scrollDirection: Axis.horizontal,
@@ -64,6 +65,24 @@ class HomeScreen extends StatelessWidget {
                     categoryIcon: FontAwesomeIcons.bacon,
                     title: 'Pork',
                     iconColor: Colors.red,
+                  ),
+                  Category(
+                    categoryBackgroundColor: Color.fromRGBO(217, 230, 250, 1),
+                    categoryIcon: FontAwesomeIcons.fish,
+                    title: 'Fish',
+                    iconColor: Colors.blue,
+                  ),
+                  Category(
+                    categoryBackgroundColor: Color.fromRGBO(249, 227, 196, 1),
+                    categoryIcon: FontAwesomeIcons.breadSlice,
+                    title: 'Bread',
+                    iconColor: Colors.brown,
+                  ),
+                  Category(
+                    categoryBackgroundColor: Color.fromRGBO(236, 242, 211, 1),
+                    categoryIcon: FontAwesomeIcons.pepperHot,
+                    title: 'Vegetables',
+                    iconColor: Colors.green,
                   ),
                 ],
               ),
