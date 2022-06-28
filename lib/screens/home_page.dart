@@ -54,11 +54,19 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
-            Category(
-              categoryBackgroundColor: Color.fromRGBO(247, 221, 220, 1),
-              categoryIcon: FontAwesomeIcons.bacon,
-              title: 'Pork',
-              iconColor: Colors.red,
+            Container(
+              height: 150,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  Category(
+                    categoryBackgroundColor: Color.fromRGBO(247, 221, 220, 1),
+                    categoryIcon: FontAwesomeIcons.bacon,
+                    title: 'Pork',
+                    iconColor: Colors.red,
+                  ),
+                ],
+              ),
             )
           ],
         ),
