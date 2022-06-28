@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_market/components/reusable_card.dart';
+import 'package:grocery_market/screens/category_screen.dart';
 
 class Category extends StatelessWidget {
   final Color categoryBackgroundColor;
@@ -16,7 +17,14 @@ class Category extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print("$title tabbed");
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CategoryScreen(
+              title: title,
+            ),
+          ),
+        );
       },
       child: Padding(
         padding: const EdgeInsets.only(right: 5.0),

@@ -8,6 +8,7 @@ import 'package:grocery_market/components/shopping_list/shopping_list.dart';
 import 'package:grocery_market/components/usually_buy/usually_buy_section.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const id = 'home_screen';
   final String title;
 
   HomeScreen({required this.title});
