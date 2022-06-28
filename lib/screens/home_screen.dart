@@ -3,10 +3,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:grocery_market/components/categories/categories_section.dart';
 import 'package:grocery_market/components/shopping_list/shopping_list.dart';
 import 'package:grocery_market/components/usually_buy/usually_buy_section.dart';
+import 'package:grocery_market/order.dart';
 
 class HomeScreen extends StatelessWidget {
   static const id = 'home_screen';
   final String title;
+
+  Order order = Order();
 
   HomeScreen({required this.title});
 
