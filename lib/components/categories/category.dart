@@ -16,7 +16,11 @@ class Category extends StatelessWidget {
       required this.title,
       required this.iconColor});
 
-  final List vegetableList = [{"itemName": 'Broccoli', "itemSubtitle": "1kg/1.6B","itemImage": "images/broccoli.webp"}];
+  final List vegetableList = [
+    {"itemName": 'Broccoli', "itemSubtitle": "1kg/1.6B","itemImage": "images/broccoli.webp"},
+    {"itemName": 'Tomato', "itemSubtitle": "1kg/1.4B","itemImage": "images/tomato.jpg"},
+    {"itemName": 'Red Cabbage', "itemSubtitle": "1kg/2.5B","itemImage": "images/red_cabbage.jpeg"}
+  ];
   List<Widget> setUpCategoryScreen(){
     List<Widget> gridViewChild = [];
     List selectedList;
@@ -28,6 +32,7 @@ class Category extends StatelessWidget {
         selectedList = [];
         break;
     }
+
     for(var i = 0; i < selectedList.length; i++){
 
       gridViewChild.add(ItemCard(
