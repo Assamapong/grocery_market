@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
   final String itemName;
-  final int itemPrice;
+  final String itemSubtitle;
   final AssetImage itemImage;
 
   ItemCard(
       {required this.itemName,
-      required this.itemPrice,
+      required this.itemSubtitle,
       required this.itemImage});
 
   @override
@@ -36,7 +36,7 @@ class ItemCard extends StatelessWidget {
             height: 90,
           ),
           Text(itemName),
-          Text('1kg/${itemPrice}B')
+          Text(itemSubtitle)
         ],
       ),
     );

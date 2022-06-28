@@ -6,12 +6,12 @@ class UsuallyBuySection extends StatelessWidget {
   var usually_buy = [
     ItemCard(
       itemName: 'Salmon fillet',
-      itemPrice: 18,
+      itemSubtitle: '1kg/18B',
       itemImage: AssetImage('images/salmon-fillet.jpeg'),
     ),
     ItemCard(
       itemName: 'Asparagus',
-      itemPrice: 16,
+      itemSubtitle: '1kg/16B',
       itemImage: AssetImage('images/asparagus.jpeg'),
     )
   ];
