@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_market/components/shopping_list_icon.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'reusable_card.dart';
 
 class ShoppingList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 150,
-      margin: EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30.0),
-        color: Color.fromRGBO(236, 242, 211, 1),
-      ),
-      child: Column(
+    return ReusableCard(
+      backgroundColorCard: Color.fromRGBO(236, 242, 211, 1),
+      cardChild: Column(
         children: [
           SizedBox(
             height: 30,

@@ -32,7 +32,27 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          children: [ShoppingList()],
+          children: [
+            ShoppingList(),
+            SizedBox(
+              height: 15,
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 35.0, right: 10),
+                  child: Text(
+                    'Categories',
+                    style: TextStyle(fontSize: 35),
+                  ),
+                ),
+                Icon(Icons.arrow_forward_ios)
+              ],
+            ),
+            SizedBox(
+              height: 15,
+            ),
+          ],
         ),
       ),
     );
