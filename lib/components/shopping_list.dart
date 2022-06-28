@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:grocery_market/components/shopping_list_icon.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -16,7 +17,7 @@ class ShoppingList extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 25.0),
             child: Row(
-              children: [
+              children: const [
                 Text(
                   'Shopping List',
                   style: TextStyle(
@@ -32,7 +33,7 @@ class ShoppingList extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: const [
               ShoppingListIcon(
                 innerIcon: FontAwesomeIcons.breadSlice,
                 colorIcon: Colors.lightGreen,

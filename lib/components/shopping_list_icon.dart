@@ -4,7 +4,7 @@ class ShoppingListIcon extends StatelessWidget {
   final IconData innerIcon;
   final Color colorIcon;
 
-  ShoppingListIcon({required this.innerIcon, required this.colorIcon});
+  const ShoppingListIcon({required this.innerIcon, required this.colorIcon});
 
   @override
   Widget build(BuildContext context) {

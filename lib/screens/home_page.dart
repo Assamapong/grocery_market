@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:grocery_market/components/category.dart';
+import 'package:grocery_market/components/reusable_card.dart';
 
 import 'package:grocery_market/components/shopping_list.dart';
 
@@ -20,7 +22,7 @@ class HomeScreen extends StatelessWidget {
           title,
           style: TextStyle(fontSize: 20),
         ),
-        actions: [
+        actions: const [
           Padding(
             padding: EdgeInsets.only(right: 15.0),
             child: Icon(
@@ -38,7 +40,7 @@ class HomeScreen extends StatelessWidget {
               height: 15,
             ),
             Row(
-              children: [
+              children: const [
                 Padding(
                   padding: EdgeInsets.only(left: 35.0, right: 10),
                   child: Text(
@@ -52,6 +54,12 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
+            Category(
+              categoryBackgroundColor: Color.fromRGBO(247, 221, 220, 1),
+              categoryIcon: FontAwesomeIcons.bacon,
+              title: 'Pork',
+              iconColor: Colors.red,
+            )
           ],
         ),
       ),
