@@ -4,14 +4,32 @@ import 'package:grocery_market/components/categories/categories_section.dart';
 import 'package:grocery_market/components/shopping_list/shopping_list.dart';
 import 'package:grocery_market/components/usually_buy/usually_buy_section.dart';
 import 'package:grocery_market/order.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
-  static const id = 'home_screen';
+import '../components/home_tab.dart';
+
+class MainMenu extends StatefulWidget {
+
   final String title;
+  MainMenu({required this.title});
 
-  Order order = Order();
+  @override
+  State<MainMenu> createState() => _MainMenuState();
+}
 
-  HomeScreen({required this.title});
+class _MainMenuState extends State<MainMenu> {
+  int _selectedIndex = 0;
+  static final List<Widget> _widgetOptions =
+  [
+    HomeTab(),
+    OrderTab(), Text('Account page'),
+  ];
+
+  void _onItemTapped(int index){
+    setState((){
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +40,7 @@ class HomeScreen extends StatelessWidget {
           color: Colors.black,
         ),
         title: Text(
-          title,
+          widget.title,
           style: TextStyle(fontSize: 20),
         ),
         actions: const [
@@ -35,21 +53,7 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-      body: Center(
-        child: Column(
-          children: [
-            ShoppingList(),
-            SizedBox(
-              height: 20,
-            ),
-            CategoriesSection(),
-            SizedBox(
-              height: 20,
-            ),
-            UsuallyBuySection()
-          ],
-        ),
-      ),
+      body: _widgetOptions.elementAt((_selectedIndex),),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -65,10 +69,30 @@ class HomeScreen extends StatelessWidget {
             label: 'Account',
           ),
         ],
-        // currentIndex: _selectedIndex,
+        currentIndex: _selectedIndex,
         // selectedItemColor: Colors.amber[800],
-        // onTap: _onItemTapped,
+        onTap: _onItemTapped,
       ),
     );
   }
 }
+
+class OrderTab extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> listOfOrder;
+
+
+    return Center(
+      child: Column(
+        children: [
+          SizedBox(height: 15,),
+          Text('Order', style: TextStyle(fontSize: 40),),
+          Expanded(child: ListView(children: Provider.of<Order>(context).listOfProduct,),)
+        ],
+      ),
+    );
+  }
+}
+

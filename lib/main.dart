@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_market/order.dart';
 import 'package:grocery_market/screens/category_screen.dart';
-import 'package:grocery_market/screens/home_screen.dart';
+import 'package:grocery_market/screens/main_menu.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
           ),
           textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
         ),
-        home: HomeScreen(
+        home: MainMenu(
           title: 'GroceryMarket',
         ),
       ),
