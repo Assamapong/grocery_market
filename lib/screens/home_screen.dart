@@ -5,7 +5,7 @@ import 'package:grocery_market/components/categories/category.dart';
 import 'package:grocery_market/components/reusable_card.dart';
 
 import 'package:grocery_market/components/shopping_list/shopping_list.dart';
-import 'package:grocery_market/components/usually_buy_section.dart';
+import 'package:grocery_market/components/usually_buy/usually_buy_section.dart';
 
 class HomeScreen extends StatelessWidget {
   final String title;
@@ -56,7 +56,7 @@ class HomeScreen extends StatelessWidget {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.delicious),
+            icon: Icon(FontAwesomeIcons.newspaper),
             label: 'Order',
           ),
           BottomNavigationBarItem(

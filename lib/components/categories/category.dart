@@ -14,27 +14,32 @@ class Category extends StatelessWidget {
       required this.iconColor});
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 5.0),
-      child: ReusableCard(
-        cardWidth: 150,
-        backgroundColorCard: categoryBackgroundColor,
-        cardChild: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              categoryIcon,
-              color: iconColor,
-              size: 50,
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              title,
-              style: TextStyle(fontSize: 25),
-            ),
-          ],
+    return GestureDetector(
+      onTap: () {
+        print("$title tabbed");
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(right: 5.0),
+        child: ReusableCard(
+          cardWidth: 150,
+          backgroundColorCard: categoryBackgroundColor,
+          cardChild: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                categoryIcon,
+                color: iconColor,
+                size: 50,
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                title,
+                style: TextStyle(fontSize: 25),
+              ),
+            ],
+          ),
         ),
       ),
     );
