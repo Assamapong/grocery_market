@@ -16,7 +16,6 @@ class Category extends StatelessWidget {
       required this.title,
       required this.iconColor});
 
-
   List<Widget> setUpCategoryScreen(){
     List<Widget> gridViewChild = [];
     List selectedList;
@@ -36,7 +35,6 @@ class Category extends StatelessWidget {
     }
 
     for(var i = 0; i < selectedList.length; i++){
-
       gridViewChild.add(ItemCard(
         itemName: selectedList[i]["itemName"],
         itemSubtitle: selectedList[i]["itemSubtitle"],
@@ -47,7 +45,6 @@ class Category extends StatelessWidget {
       );
     }
     return gridViewChild;
-
   }
 
   @override

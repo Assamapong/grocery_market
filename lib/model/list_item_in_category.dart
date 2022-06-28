@@ -11,7 +11,6 @@ const List porkList = [
 
 const List fishList = [
   {"itemName": 'Salmon', "itemSubtitle": "1kg/235B","itemImage": "images/salmon-fillet.jpeg"},
-
 ];
 
 
