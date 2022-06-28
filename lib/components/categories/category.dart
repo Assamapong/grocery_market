@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_market/components/reusable_card.dart';
 import 'package:grocery_market/screens/category_screen.dart';
-
+import 'package:grocery_market/model/list_item_in_category.dart';
 import '../usually_buy/item_card.dart';
 
 class Category extends StatelessWidget {
@@ -16,17 +16,19 @@ class Category extends StatelessWidget {
       required this.title,
       required this.iconColor});
 
-  final List vegetableList = [
-    {"itemName": 'Broccoli', "itemSubtitle": "1kg/1.6B","itemImage": "images/broccoli.webp"},
-    {"itemName": 'Tomato', "itemSubtitle": "1kg/1.4B","itemImage": "images/tomato.jpg"},
-    {"itemName": 'Red Cabbage', "itemSubtitle": "1kg/2.5B","itemImage": "images/red_cabbage.jpeg"}
-  ];
+
   List<Widget> setUpCategoryScreen(){
     List<Widget> gridViewChild = [];
     List selectedList;
     switch(title){
       case 'Vegetables':
         selectedList = vegetableList;
+        break;
+      case 'Pork':
+        selectedList = porkList;
+        break;
+      case 'Fish':
+        selectedList = fishList;
         break;
       default:
         selectedList = [];
