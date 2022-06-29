@@ -5,6 +5,7 @@ class Order extends ChangeNotifier {
 
   List<Widget> listOfProduct = [];
   Map counter = {};
+  double totalPrice = 0;
 
   void addOrder(Map product) {
     if (counter.containsKey(product)) {
@@ -12,6 +13,7 @@ class Order extends ChangeNotifier {
     } else {
       counter[product] = 1;
     }
+    calculateTotalPrice();
     updateListTile();
     notifyListeners();
   }
@@ -24,6 +26,7 @@ class Order extends ChangeNotifier {
         counter.remove(product);
       }
     }
+    calculateTotalPrice();
     updateListTile();
     notifyListeners();
   }
@@ -33,16 +36,30 @@ class Order extends ChangeNotifier {
     for (var key in counter.keys) {
       listOfProduct.add(
         ListTile(
-          title: Text(key["itemName"]),
-          subtitle: Text(counter[key].toString()),
+          title: Text(
+            key["itemName"] + '  (x' + counter[key].toString() + ')',
+            style: TextStyle(fontSize: 20),
+          ),
+          trailing: Text(
+            (key["price"] * counter[key]).toDouble().toString() + ' ฿',
+            style: TextStyle(fontSize: 20),
+          ),
         ),
       );
     }
   }
 
+  void calculateTotalPrice() {
+    totalPrice = 0;
+    counter.forEach((product, count) {
+      totalPrice += product["price"] * count;
+    });
+  }
+
   void clearOrder() {
     counter = {};
     listOfProduct = [];
+    totalPrice = 0;
     notifyListeners();
   }
 }

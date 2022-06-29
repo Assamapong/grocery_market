@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_market/components/bottom_button.dart';
 import 'package:grocery_market/screens/success_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -8,26 +9,53 @@ class OrderTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var listOfProduct = Provider.of<Order>(context).listOfProduct;
-    return Center(
+    var totalPrice = Provider.of<Order>(context).totalPrice;
+    return Padding(
+      padding: const EdgeInsets.all(15.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(
-            height: 15,
-          ),
-          Text(
-            'Your Order',
-            style: TextStyle(fontSize: 40),
-          ),
-          Container(
-            height: 70.0 * listOfProduct.length,
-            child: ListView(
-              children: listOfProduct,
-            ),
+          Column(
+            children: [
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                'Your Order',
+                style: TextStyle(fontSize: 40),
+              ),
+              SizedBox(
+                height: 70.0 * listOfProduct.length,
+                child: ListView(
+                  children: listOfProduct,
+                ),
+              ),
+              listOfProduct.isNotEmpty
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Total Price',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            totalPrice.toString() + '฿',
+                            style: TextStyle(fontSize: 20),
+                          )
+                        ],
+                      ),
+                    )
+                  : Container()
+            ],
           ),
           listOfProduct.isNotEmpty
-              ? ElevatedButton(
-                  style: ButtonStyle(),
-                  onPressed: () {
+              ? BottomButton(
+                  title: 'Confirm Order',
+                  ontap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -35,9 +63,15 @@ class OrderTab extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text('Confirm Order'),
                 )
-              : Container(),
+              : Expanded(
+                  child: Center(
+                    child: Text(
+                      'Your order is now empty',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                ),
         ],
       ),
     );
