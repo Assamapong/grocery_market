@@ -11,6 +11,7 @@ import '../components/order_tab.dart';
 
 class MainMenu extends StatefulWidget {
   final String title;
+
   MainMenu({required this.title});
 
   @override
@@ -19,6 +20,7 @@ class MainMenu extends StatefulWidget {
 
 class _MainMenuState extends State<MainMenu> {
   int _selectedIndex = 0;
+
   static final List<Widget> _widgetOptions = [
     HomeTab(),
     OrderTab(),

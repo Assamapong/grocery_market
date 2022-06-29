@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_market/components/reusable_card.dart';
+import 'package:grocery_market/components/bottom_button.dart';
+import 'package:grocery_market/order.dart';
+import 'package:provider/provider.dart';
 
 class SuccessScreen extends StatelessWidget {
   @override
@@ -34,18 +36,13 @@ class SuccessScreen extends StatelessWidget {
               SizedBox(
                 height: 120,
               ),
-              ReusableCard(
-                  cardHeight: 80,
-                  backgroundColorCard: Color.fromRGBO(30, 42, 73, 1),
-                  cardChild: Center(
-                    child: Text(
-                      'Back To Home',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ))
+              BottomButton(
+                title: 'Back To Home',
+                ontap: () {
+                  Provider.of<Order>(context, listen: false).clearOrder();
+                  Navigator.pop(context);
+                },
+              )
             ],
           ),
         ),

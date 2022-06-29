@@ -24,18 +24,20 @@ class OrderTab extends StatelessWidget {
               children: listOfProduct,
             ),
           ),
-          ElevatedButton(
-            style: ButtonStyle(),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SuccessScreen(),
-                ),
-              );
-            },
-            child: Text('Confirm Order'),
-          ),
+          listOfProduct.isNotEmpty
+              ? ElevatedButton(
+                  style: ButtonStyle(),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SuccessScreen(),
+                      ),
+                    );
+                  },
+                  child: Text('Confirm Order'),
+                )
+              : Container(),
         ],
       ),
     );

@@ -39,4 +39,10 @@ class Order extends ChangeNotifier {
       );
     }
   }
+
+  void clearOrder() {
+    counter = {};
+    listOfProduct = [];
+    notifyListeners();
+  }
 }
