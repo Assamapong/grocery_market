@@ -3,15 +3,15 @@ import 'package:grocery_market/order.dart';
 import 'package:provider/provider.dart';
 
 class ItemCard extends StatelessWidget {
-  final String itemName;
-  final String itemSubtitle;
-  final AssetImage itemImage;
-
-  ItemCard({
-    required this.itemName,
-    required this.itemSubtitle,
-    required this.itemImage,
-  });
+  final Map product;
+  late String itemName;
+  late String itemSubtitle;
+  late AssetImage itemImage;
+  ItemCard({required this.product}) {
+    itemName = product['itemName'];
+    itemSubtitle = product['itemSubtitle'];
+    itemImage = product['itemImage'];
+  }
 
   @override
   Widget build(BuildContext context) {

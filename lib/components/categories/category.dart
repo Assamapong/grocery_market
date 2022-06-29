@@ -25,11 +25,7 @@ class Category extends StatelessWidget {
     for (var i = 0; i < selectedList.length; i++) {
       gridViewChild.add(
         ItemCard(
-          itemName: selectedList[i]["itemName"],
-          itemSubtitle: selectedList[i]["itemSubtitle"],
-          itemImage: AssetImage(
-            selectedList[i]["itemImage"],
-          ),
+          product: selectedList[i],
         ),
       );
     }

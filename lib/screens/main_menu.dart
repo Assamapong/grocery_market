@@ -9,7 +9,6 @@ import 'package:provider/provider.dart';
 import '../components/home_tab.dart';
 
 class MainMenu extends StatefulWidget {
-
   final String title;
   MainMenu({required this.title});
 
@@ -19,14 +18,14 @@ class MainMenu extends StatefulWidget {
 
 class _MainMenuState extends State<MainMenu> {
   int _selectedIndex = 0;
-  static final List<Widget> _widgetOptions =
-  [
+  static final List<Widget> _widgetOptions = [
     HomeTab(),
-    OrderTab(), Text('Account page'),
+    OrderTab(),
+    Text('Account page'),
   ];
 
-  void _onItemTapped(int index){
-    setState((){
+  void _onItemTapped(int index) {
+    setState(() {
       _selectedIndex = index;
     });
   }
@@ -53,7 +52,9 @@ class _MainMenuState extends State<MainMenu> {
           )
         ],
       ),
-      body: _widgetOptions.elementAt((_selectedIndex),),
+      body: _widgetOptions.elementAt(
+        (_selectedIndex),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -78,21 +79,27 @@ class _MainMenuState extends State<MainMenu> {
 }
 
 class OrderTab extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     List<Widget> listOfOrder;
 
-
     return Center(
       child: Column(
         children: [
-          SizedBox(height: 15,),
-          Text('Order', style: TextStyle(fontSize: 40),),
-          Expanded(child: ListView(children: Provider.of<Order>(context).listOfProduct,),)
+          SizedBox(
+            height: 15,
+          ),
+          Text(
+            'Order',
+            style: TextStyle(fontSize: 40),
+          ),
+          Expanded(
+            child: ListView(
+              children: Provider.of<Order>(context).listOfProduct,
+            ),
+          )
         ],
       ),
     );
   }
 }
-
