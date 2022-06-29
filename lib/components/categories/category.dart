@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_market/components/reusable_card.dart';
 import 'package:grocery_market/screens/category_screen.dart';
-import 'package:grocery_market/model/list_item_in_category.dart';
+import 'package:grocery_market/model/product_list.dart';
 import '../usually_buy/item_card.dart';
 
 class Category extends StatelessWidget {
