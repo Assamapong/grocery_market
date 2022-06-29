@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_market/components/signup_screen.dart';
 import 'package:grocery_market/order.dart';
 import 'package:grocery_market/screens/category_screen.dart';
 import 'package:grocery_market/screens/main_menu.dart';
@@ -10,12 +11,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<Order>(
-      create: (context)=> Order(),
+      create: (context) => Order(),
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -24,12 +24,15 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
             titleTextStyle: TextStyle(color: Colors.black),
           ),
-          textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
+          textTheme:
+              GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
         ),
-        home: MainMenu(
-          title: 'GroceryMarket',
-        ),
+        home: SignUpScreen(title: 'GroceryMarket'),
       ),
     );
   }
 }
+
+// MainMenu(
+// title: 'GroceryMarket',
+// )
