@@ -7,6 +7,7 @@ import 'package:grocery_market/order.dart';
 import 'package:provider/provider.dart';
 
 import '../components/home_tab.dart';
+import '../components/order_tab.dart';
 
 class MainMenu extends StatefulWidget {
   final String title;
@@ -73,32 +74,6 @@ class _MainMenuState extends State<MainMenu> {
         currentIndex: _selectedIndex,
         // selectedItemColor: Colors.amber[800],
         onTap: _onItemTapped,
-      ),
-    );
-  }
-}
-
-class OrderTab extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    List<Widget> listOfOrder;
-
-    return Center(
-      child: Column(
-        children: [
-          SizedBox(
-            height: 15,
-          ),
-          Text(
-            'Order',
-            style: TextStyle(fontSize: 40),
-          ),
-          Expanded(
-            child: ListView(
-              children: Provider.of<Order>(context).listOfProduct,
-            ),
-          )
-        ],
       ),
     );
   }
