@@ -17,8 +17,7 @@ class ItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Provider.of<Order>(context, listen: false)
-            .addOrder({"itemName": itemName, "itemSubtitle": itemSubtitle});
+        Provider.of<Order>(context, listen: false).addOrder(product);
         print(Provider.of<Order>(context, listen: false).listOfProduct);
       },
       child: Container(
