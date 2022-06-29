@@ -13,29 +13,28 @@ class SuccessScreen extends StatelessWidget {
           padding: const EdgeInsets.all(30.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image(
+              Column(children: [Image(
                 image: AssetImage('images/success.png'),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                'Thanks for your order!',
-                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                'The order is being packed for shipping.',
-                style: TextStyle(fontSize: 20, color: Colors.grey),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 120,
-              ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Thanks for your order!',
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  'The order is being packed for shipping.',
+                  style: TextStyle(fontSize: 20, color: Colors.grey),
+                  textAlign: TextAlign.center,
+                ),],),
+
               BottomButton(
                 title: 'Back To Home',
                 ontap: () {
