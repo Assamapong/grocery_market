@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:grocery_market/components/bottom_button.dart';
 import 'package:grocery_market/screens/success_screen.dart';
@@ -25,8 +27,8 @@ class OrderTab extends StatelessWidget {
                 'Your Order',
                 style: TextStyle(fontSize: 40),
               ),
-              SizedBox(
-                height: 70.0 * listOfProduct.length,
+              Container(
+                height: min(60.0 * listOfProduct.length, 400),
                 child: ListView(
                   children: listOfProduct,
                 ),
