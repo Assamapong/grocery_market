@@ -21,7 +21,6 @@ class Order extends ChangeNotifier {
         ),
       );
     }
-    print(counter);
 
     notifyListeners();
   }
