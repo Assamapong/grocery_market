@@ -42,15 +42,20 @@ class ItemCard extends StatelessWidget {
                     children: [
                       Text(
                           isProductSelected ? counter[product].toString() : ''),
-                      Container(
-                        child: Icon(
-                          FontAwesomeIcons.minus,
-                          size: 20,
-                          color: Colors.white,
+                      GestureDetector(
+                        onTap: () {
+                          order.removeOrder(product);
+                        },
+                        child: Container(
+                          child: Icon(
+                            FontAwesomeIcons.minus,
+                            size: 20,
+                            color: Colors.white,
+                          ),
+                          decoration: BoxDecoration(
+                              color: Colors.red, shape: BoxShape.circle),
+                          margin: EdgeInsets.only(left: 5),
                         ),
-                        decoration: BoxDecoration(
-                            color: Colors.red, shape: BoxShape.circle),
-                        margin: EdgeInsets.only(left: 5),
                       )
                     ],
                   )
