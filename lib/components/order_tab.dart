@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_market/screens/success_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../order.dart';
@@ -6,8 +7,7 @@ import '../order.dart';
 class OrderTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<Widget> listOfOrder;
-
+    var listOfProduct = Provider.of<Order>(context).listOfProduct;
     return Center(
       child: Column(
         children: [
@@ -15,14 +15,27 @@ class OrderTab extends StatelessWidget {
             height: 15,
           ),
           Text(
-            'Order',
+            'Your Order',
             style: TextStyle(fontSize: 40),
           ),
-          Expanded(
+          Container(
+            height: 70.0 * listOfProduct.length,
             child: ListView(
-              children: Provider.of<Order>(context).listOfProduct,
+              children: listOfProduct,
             ),
-          )
+          ),
+          ElevatedButton(
+            style: ButtonStyle(),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SuccessScreen(),
+                ),
+              );
+            },
+            child: Text('Confirm Order'),
+          ),
         ],
       ),
     );
