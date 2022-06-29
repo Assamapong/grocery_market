@@ -7,17 +7,18 @@ class ItemCard extends StatelessWidget {
   final String itemSubtitle;
   final AssetImage itemImage;
 
-
-  ItemCard(
-      {required this.itemName,
-      required this.itemSubtitle,
-      required this.itemImage, });
+  ItemCard({
+    required this.itemName,
+    required this.itemSubtitle,
+    required this.itemImage,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Provider.of<Order>(context, listen: false).addOrder({"itemName": itemName, "itemSubtitle": itemSubtitle});
+      onTap: () {
+        Provider.of<Order>(context, listen: false)
+            .addOrder({"itemName": itemName, "itemSubtitle": itemSubtitle});
         print(Provider.of<Order>(context, listen: false).listOfProduct);
       },
       child: Container(

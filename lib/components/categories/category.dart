@@ -16,32 +16,21 @@ class Category extends StatelessWidget {
       required this.title,
       required this.iconColor});
 
-  List<Widget> setUpCategoryScreen(){
+  List<Widget> setUpCategoryScreen() {
     List<Widget> gridViewChild = [];
     List selectedList;
-    switch(title){
-      case 'Vegetables':
-        selectedList = vegetableList;
-        break;
-      case 'Pork':
-        selectedList = porkList;
-        break;
-      case 'Fish':
-        selectedList = fishList;
-        break;
-      default:
-        selectedList = [];
-        break;
-    }
+    selectedList =
+        productList.where((element) => element["category"] == title).toList();
 
-    for(var i = 0; i < selectedList.length; i++){
-      gridViewChild.add(ItemCard(
-        itemName: selectedList[i]["itemName"],
-        itemSubtitle: selectedList[i]["itemSubtitle"],
-        itemImage: AssetImage(
-          selectedList[i]["itemImage"],
+    for (var i = 0; i < selectedList.length; i++) {
+      gridViewChild.add(
+        ItemCard(
+          itemName: selectedList[i]["itemName"],
+          itemSubtitle: selectedList[i]["itemSubtitle"],
+          itemImage: AssetImage(
+            selectedList[i]["itemImage"],
+          ),
         ),
-      ),
       );
     }
     return gridViewChild;

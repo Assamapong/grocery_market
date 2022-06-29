@@ -15,8 +15,6 @@ class CategoryScreen extends StatelessWidget {
     'Vegetables': Colors.green
   };
 
-
-
   CategoryScreen({required this.title, required this.gridViewChild});
 
   @override
@@ -44,25 +42,6 @@ class CategoryScreen extends StatelessWidget {
           crossAxisCount: 2,
           children: gridViewChild,
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.shop),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.newspaper),
-            label: 'Order',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.person),
-            label: 'Account',
-          ),
-        ],
-        // currentIndex: _selectedIndex,
-        // selectedItemColor: Colors.amber[800],
-        // onTap: _onItemTapped,
       ),
     );
   }

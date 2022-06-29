@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class Order extends ChangeNotifier{
-  List<Widget> listOfProduct = [];
-
-
+class Order extends ChangeNotifier {
   Order();
 
-  void addOrder(Map product){
-    listOfProduct.add(ListTile(title: Text(product['itemName']),),);
+  List<Widget> listOfProduct = [];
+
+  void addOrder(Map product) {
+    listOfProduct.add(
+      ListTile(
+        title: Text(product['itemName']),
+      ),
+    );
     notifyListeners();
   }
-
-
-
 }
