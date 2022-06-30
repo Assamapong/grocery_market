@@ -3,13 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:grocery_market/screens/signin_screen.dart';
-import 'package:grocery_market/screens/signup_screen.dart';
-import 'package:grocery_market/components/categories/categories_section.dart';
-import 'package:grocery_market/components/shopping_list/shopping_list.dart';
-import 'package:grocery_market/components/usually_buy/usually_buy_section.dart';
-import 'package:grocery_market/order.dart';
-import 'package:provider/provider.dart';
-
 import '../components/home_tab.dart';
 import '../components/order_tab.dart';
 
@@ -68,10 +61,11 @@ class _MainMenuState extends State<MainMenu> {
                   print(e);
                 }
                 Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (builder) =>
-                            SigninScreen(title: 'GroceryMarket')));
+                  context,
+                  MaterialPageRoute(
+                    builder: (builder) => SigninScreen(title: 'GroceryMarket'),
+                  ),
+                );
               },
               child: Icon(
                 FontAwesomeIcons.doorOpen,

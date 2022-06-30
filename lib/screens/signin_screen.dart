@@ -16,35 +16,34 @@ class SigninScreen extends StatefulWidget {
 }
 
 class _SigninScreenState extends State<SigninScreen> {
-  // var loading = false;
-
+  var loading = false;
   void _loginWithGoogle() async {
-    // setState(() {
-    //   loading = true;
-    // });
     final googleSignIn = GoogleSignIn(scopes: ['email']);
     try {
       final googleSignInAccount = await googleSignIn.signIn();
       if (googleSignInAccount == null) {
-        // setState(() {
-        //   loading = false;
-        // });
         return;
       }
+      setState(() {
+        loading = true;
+      });
       final googleSignInAuthentication =
           await googleSignInAccount.authentication;
       final credential = GoogleAuthProvider.credential(
           accessToken: googleSignInAuthentication.accessToken,
           idToken: googleSignInAuthentication.idToken);
       await FirebaseAuth.instance.signInWithCredential(credential);
-      await FirebaseFirestore.instance.collection('user').add({
-        'email': googleSignInAccount.email,
-        'imageUrl': googleSignInAccount.photoUrl,
-        'name': googleSignInAccount.displayName
-      });
+      // await FirebaseFirestore.instance.collection('user').add({
+      //   'email': googleSignInAccount.email,
+      //   'imageUrl': googleSignInAccount.photoUrl,
+      //   'name': googleSignInAccount.displayName
+      // });
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(
-              builder: (builder) => MainMenu(title: 'GroceryMarket')),
+            builder: (builder) => MainMenu(
+              title: 'GroceryMarket',
+            ),
+          ),
           (route) => false);
     } on FirebaseAuthException catch (e) {
       var content = '';
@@ -53,101 +52,152 @@ class _SigninScreenState extends State<SigninScreen> {
           content:
           'This account exists with a different sign in provider';
           break;
+        case 'invalid-credential':
+          content:
+          'Unknown error has occurred';
+          break;
+        case 'operation-not-allowed':
+          content:
+          'This operation is not allowed';
+          break;
+        case 'user-disabled':
+          content:
+          'The user you tried to log into is disabled';
+          break;
+        case 'user-not-found':
+          content:
+          'The user you tried to log into was not found';
+          break;
       }
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Login with google failed'),
+          content: Text(content),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Ok'),
+            )
+          ],
+        ),
+      );
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Login with google failed'),
+          content: Text("An unknown error occurred"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Ok'),
+            )
+          ],
+        ),
+      );
     } finally {
-      // setState(() {
-      //   loading = false;
-      // });
+      setState(() {
+        loading = false;
+      });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: Icon(
-          FontAwesomeIcons.basketShopping,
-          color: Colors.black,
-        ),
-        title: Text(
-          widget.title,
-          style: TextStyle(fontSize: 20),
-        ),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.only(right: 15.0),
-            child: Icon(
-              FontAwesomeIcons.magnifyingGlass,
-              color: Colors.black,
+    return !loading
+        ? Scaffold(
+            appBar: AppBar(
+              leading: Icon(
+                FontAwesomeIcons.basketShopping,
+                color: Colors.black,
+              ),
+              title: Text(
+                widget.title,
+                style: TextStyle(fontSize: 20),
+              ),
+              actions: const [
+                Padding(
+                  padding: EdgeInsets.only(right: 15.0),
+                  child: Icon(
+                    FontAwesomeIcons.magnifyingGlass,
+                    color: Colors.black,
+                  ),
+                )
+              ],
             ),
-          )
-        ],
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Sign in',
-            style: TextStyle(fontSize: 40),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Don't have account?"),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          SignUpScreen(title: 'GroceryMarket'),
-                    ),
-                  );
-                },
-                child: Text('Sign in'),
-              )
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            body: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Email',
-                  style: TextStyle(fontSize: 20),
+                  'Sign in',
+                  style: TextStyle(fontSize: 40),
                 ),
-                TextField(),
-                SizedBox(
-                  height: 10,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Don't have account?"),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                SignUpScreen(title: 'GroceryMarket'),
+                          ),
+                        );
+                      },
+                      child: Text('Sign in'),
+                    )
+                  ],
                 ),
-                Text(
-                  'Password',
-                  style: TextStyle(fontSize: 20),
-                ),
-                TextField(),
-                Center(
-                  child: TextButton(
-                    onPressed: () {
-                      _loginWithGoogle();
-                    },
-                    child: Text(
-                      'Login with gmail',
-                    ),
-                    style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      backgroundColor: Colors.blueAccent,
-                      textStyle: const TextStyle(
-                        fontSize: 24,
+                Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Email',
+                        style: TextStyle(fontSize: 20),
                       ),
-                    ),
+                      TextField(),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'Password',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      TextField(),
+                      Center(
+                        child: TextButton(
+                          onPressed: () {
+                            _loginWithGoogle();
+                          },
+                          child: Text(
+                            'Login with gmail',
+                          ),
+                          style: TextButton.styleFrom(
+                            primary: Colors.white,
+                            backgroundColor: Colors.blueAccent,
+                            textStyle: const TextStyle(
+                              fontSize: 24,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
+                )
               ],
             ),
           )
-        ],
-      ),
-    );
+        : Center(
+            child: CircularProgressIndicator(),
+          );
   }
 }
