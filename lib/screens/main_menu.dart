@@ -50,7 +50,7 @@ class _MainMenuState extends State<MainMenu> {
           Padding(
             padding: EdgeInsets.only(right: 15.0),
             child: Icon(
-              FontAwesomeIcons.magnifyingGlass,
+              FontAwesomeIcons.doorOpen,
               color: Colors.black,
             ),
           )
