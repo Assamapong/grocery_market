@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import 'components/signin_screen.dart';
+import 'gg_sign_in/sign_in_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,9 +31,7 @@ class MyApp extends StatelessWidget {
           textTheme:
               GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
         ),
-        home: SigninScreen(
-          title: 'GroceryMarket',
-        ),
+        home: SignInScreen(),
       ),
     );
   }
