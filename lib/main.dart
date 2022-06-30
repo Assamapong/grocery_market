@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_market/components/signup_screen.dart';
+
 import 'package:grocery_market/order.dart';
 import 'package:grocery_market/screens/category_screen.dart';
 import 'package:grocery_market/screens/main_menu.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
+import 'components/signin_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,7 +30,9 @@ class MyApp extends StatelessWidget {
           textTheme:
               GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
         ),
-        home: SignUpScreen(title: 'GroceryMarket'),
+        home: SigninScreen(
+          title: 'GroceryMarket',
+        ),
       ),
     );
   }

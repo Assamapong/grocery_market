@@ -2,11 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:grocery_market/components/signup_screen.dart';
 
-class SigninScreen extends StatelessWidget {
+import '../utils/authentication.dart';
+
+class SigninScreen extends StatefulWidget {
   final String title;
 
   SigninScreen({required this.title});
 
+  @override
+  State<SigninScreen> createState() => _SigninScreenState();
+}
+
+class _SigninScreenState extends State<SigninScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +23,7 @@ class SigninScreen extends StatelessWidget {
           color: Colors.black,
         ),
         title: Text(
-          title,
+          widget.title,
           style: TextStyle(fontSize: 20),
         ),
         actions: const [
@@ -70,7 +77,8 @@ class SigninScreen extends StatelessWidget {
                   'Password',
                   style: TextStyle(fontSize: 20),
                 ),
-                TextField()
+                TextField(),
+               
               ],
             ),
           )
