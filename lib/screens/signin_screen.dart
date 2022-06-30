@@ -1,10 +1,12 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:grocery_market/screens/signup_screen.dart';
 import 'package:grocery_market/screens/main_menu.dart';
+import 'package:grocery_market/user.dart';
+
+import 'package:provider/provider.dart';
 
 class SigninScreen extends StatefulWidget {
   final String title;
@@ -33,6 +35,8 @@ class _SigninScreenState extends State<SigninScreen> {
           accessToken: googleSignInAuthentication.accessToken,
           idToken: googleSignInAuthentication.idToken);
       await FirebaseAuth.instance.signInWithCredential(credential);
+      Provider.of<LoggedInUser>(context, listen: false)
+          .setUser(googleSignInAccount);
       // await FirebaseFirestore.instance.collection('user').add({
       //   'email': googleSignInAccount.email,
       //   'imageUrl': googleSignInAccount.photoUrl,
@@ -85,6 +89,7 @@ class _SigninScreenState extends State<SigninScreen> {
         ),
       );
     } catch (e) {
+      print(e);
       showDialog(
         context: context,
         builder: (context) => AlertDialog(

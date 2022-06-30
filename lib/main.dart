@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_market/order.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:grocery_market/user.dart';
 import 'package:provider/provider.dart';
 import 'screens/signin_screen.dart';
 
@@ -25,7 +26,10 @@ class MyApp extends StatelessWidget {
         }
         return MultiProvider(
           providers: [
-            ChangeNotifierProvider<Order>(create: (context) => Order())
+            ChangeNotifierProvider<Order>(create: (context) => Order()),
+            ChangeNotifierProvider<LoggedInUser>(
+              create: (context) => LoggedInUser(),
+            )
           ],
           child: MaterialApp(
             title: 'Flutter Demo',

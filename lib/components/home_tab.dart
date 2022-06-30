@@ -5,7 +5,6 @@ import 'package:grocery_market/components/usually_buy/usually_buy_section.dart';
 import 'categories/categories_section.dart';
 
 class HomeTab extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -17,7 +16,7 @@ class HomeTab extends StatelessWidget {
           ),
           CategoriesSection(),
           SizedBox(
-            height: 20,
+            height: 40,
           ),
           UsuallyBuySection()
         ],
