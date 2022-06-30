@@ -34,9 +34,8 @@ class _MainMenuState extends State<MainMenu> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          FontAwesomeIcons.basketShopping,
-          color: Colors.black,
+        leading: Image(
+          image: AssetImage('images/logo.png'),
         ),
         title: Text(
           widget.title,

@@ -35,12 +35,24 @@ class _OrderTabState extends State<OrderTab> {
                 'Your Order',
                 style: TextStyle(fontSize: 40),
               ),
-              listOfProduct.isNotEmpty ? Container(
-                height: min(60.0 * listOfProduct.length, 400),
-                child: ListView(
-                  children: listOfProduct,
-                ),
-              ) : Container(child: Center(child: Text('Your order is now empty', style: TextStyle(fontSize: 15,),),),height: 500,),
+              listOfProduct.isNotEmpty
+                  ? Container(
+                      height: min(60.0 * listOfProduct.length, 400),
+                      child: ListView(
+                        children: listOfProduct,
+                      ),
+                    )
+                  : Container(
+                      child: Center(
+                        child: Text(
+                          'Your order is now empty',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                      height: 600,
+                    ),
               listOfProduct.isNotEmpty
                   ? Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -62,49 +74,65 @@ class _OrderTabState extends State<OrderTab> {
                   : Container()
             ],
           ),
-
-          listOfProduct.isNotEmpty ? Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+          listOfProduct.isNotEmpty
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Please select payment method', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-
-                    DropdownButton(isExpanded: true,items: items.map((item){
-                      return DropdownMenuItem(child: Text(item, style: TextStyle(fontSize: 18),), value: item,);
-                    }).toList(), onChanged: (String? newValue){
-                      setState((){
-                        dropDownValue = newValue!;
-                      });
-                    }, value: dropDownValue, icon: Icon(Icons.keyboard_arrow_down),)
-                  ],
-                ),
-              ),
-              listOfProduct.isNotEmpty
-                  ? BottomButton(
-                      title: 'Confirm Order',
-                      ontap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SuccessScreen(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Please select payment method',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
                           ),
-                        );
-                      },
-                    )
-                  : Expanded(
-                      child: Center(
-                        child: Text(
-                          'Your order is now empty',
-                          style: TextStyle(fontSize: 20),
-                        ),
+                          DropdownButton(
+                            isExpanded: true,
+                            items: items.map((item) {
+                              return DropdownMenuItem(
+                                child: Text(
+                                  item,
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                                value: item,
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                dropDownValue = newValue!;
+                              });
+                            },
+                            value: dropDownValue,
+                            icon: Icon(Icons.keyboard_arrow_down),
+                          )
+                        ],
                       ),
                     ),
-            ],
-          ) : Column(),
+                    listOfProduct.isNotEmpty
+                        ? BottomButton(
+                            title: 'Confirm Order',
+                            ontap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SuccessScreen(),
+                                ),
+                              );
+                            },
+                          )
+                        : Expanded(
+                            child: Center(
+                              child: Text(
+                                'Your order is now empty',
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            ),
+                          ),
+                  ],
+                )
+              : Column(),
         ],
       ),
     );

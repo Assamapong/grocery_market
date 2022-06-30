@@ -117,9 +117,9 @@ class _SigninScreenState extends State<SigninScreen> {
     return !loading
         ? Scaffold(
             appBar: AppBar(
-              leading: Icon(
-                FontAwesomeIcons.basketShopping,
-                color: Colors.black,
+              leading: Image(
+                image: AssetImage('images/logo.png'),
+                height: 30,
               ),
               title: Text(
                 widget.title,
