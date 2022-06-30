@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:grocery_market/components/signup_screen.dart';
+import 'package:grocery_market/screens/signup_screen.dart';
 import 'package:grocery_market/screens/main_menu.dart';
 
 class SigninScreen extends StatefulWidget {
