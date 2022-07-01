@@ -106,12 +106,12 @@ class _SigninScreenState extends State<SigninScreen> {
                       LoginButton(
                           buttonTitle: 'Login with Facebook',
                           logo: AssetImage('images/facebook_logo.png'),
-                          buttonColor: Colors.green,
+                          buttonColor: Colors.blue,
                           onTab: _loginWithGoogle),
                       LoginButton(
                           buttonTitle: 'Login with Apple',
                           logo: AssetImage('images/apple_logo.png'),
-                          buttonColor: Colors.green,
+                          buttonColor: Colors.black54,
                           onTab: _loginWithGoogle)
                     ],
                   ),
