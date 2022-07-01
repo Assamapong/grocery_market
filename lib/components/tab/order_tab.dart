@@ -1,11 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:grocery_market/components/bottom_button.dart';
+import 'package:grocery_market/components/UI/bottom_button.dart';
 import 'package:grocery_market/screens/success_screen.dart';
 import 'package:provider/provider.dart';
 
-import '../order.dart';
+import '../../order.dart';
 
 class OrderTab extends StatefulWidget {
   @override

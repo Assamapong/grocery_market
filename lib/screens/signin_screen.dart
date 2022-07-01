@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:grocery_market/components/UI/login_button.dart';
 import 'package:grocery_market/screens/signup_screen.dart';
 import 'package:grocery_market/screens/main_menu.dart';
 import 'package:grocery_market/user.dart';
@@ -178,23 +179,21 @@ class _SigninScreenState extends State<SigninScreen> {
                         style: TextStyle(fontSize: 20),
                       ),
                       TextField(),
-                      Center(
-                        child: TextButton(
-                          onPressed: () {
-                            _loginWithGoogle();
-                          },
-                          child: Text(
-                            'Login with gmail',
-                          ),
-                          style: TextButton.styleFrom(
-                            primary: Colors.white,
-                            backgroundColor: Colors.blueAccent,
-                            textStyle: const TextStyle(
-                              fontSize: 24,
-                            ),
-                          ),
-                        ),
-                      ),
+                      LoginButton(
+                          buttonTitle: 'Login with Google',
+                          logo: AssetImage('images/google_logo.png'),
+                          buttonColor: Colors.green,
+                          onTab: _loginWithGoogle),
+                      LoginButton(
+                          buttonTitle: 'Login with Facebook',
+                          logo: AssetImage('images/facebook_logo.png'),
+                          buttonColor: Colors.green,
+                          onTab: _loginWithGoogle),
+                      LoginButton(
+                          buttonTitle: 'Login with Apple',
+                          logo: AssetImage('images/apple_logo.png'),
+                          buttonColor: Colors.green,
+                          onTab: _loginWithGoogle)
                     ],
                   ),
                 )

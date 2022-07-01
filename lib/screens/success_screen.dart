@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_market/components/bottom_button.dart';
+import 'package:grocery_market/components/UI/bottom_button.dart';
 import 'package:grocery_market/order.dart';
 import 'package:provider/provider.dart';
 
@@ -15,26 +15,29 @@ class SuccessScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(children: [Image(
-                image: AssetImage('images/success.png'),
+              Column(
+                children: [
+                  Image(
+                    image: AssetImage('images/success.png'),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    'Thanks for your order!',
+                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    'The order is being packed for shipping.',
+                    style: TextStyle(fontSize: 20, color: Colors.grey),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  'Thanks for your order!',
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Text(
-                  'The order is being packed for shipping.',
-                  style: TextStyle(fontSize: 20, color: Colors.grey),
-                  textAlign: TextAlign.center,
-                ),],),
-
               BottomButton(
                 title: 'Back To Home',
                 ontap: () {

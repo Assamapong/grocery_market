@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_market/components/shopping_list/shopping_list.dart';
 import 'package:grocery_market/components/usually_buy/usually_buy_section.dart';
 
-import 'categories/categories_section.dart';
+import '../categories/categories_section.dart';
 
 class HomeTab extends StatelessWidget {
   @override

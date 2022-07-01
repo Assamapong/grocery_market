@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:grocery_market/screens/signin_screen.dart';
-import '../components/home_tab.dart';
-import '../components/order_tab.dart';
+import '../components/tab/home_tab.dart';
+import '../components/tab/order_tab.dart';
 
 class MainMenu extends StatefulWidget {
   final String title;

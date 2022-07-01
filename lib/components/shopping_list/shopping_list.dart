@@ -5,7 +5,7 @@ import 'package:grocery_market/components/shopping_list/shopping_list_icon.dart'
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:grocery_market/user.dart';
 import 'package:provider/provider.dart';
-import '../reusable_card.dart';
+import '../UI/reusable_card.dart';
 
 class ShoppingList extends StatelessWidget {
   @override

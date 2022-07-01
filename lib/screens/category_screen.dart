@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:grocery_market/components/categories/category.dart';
-import 'package:grocery_market/components/usually_buy/item_card.dart';
+import 'package:grocery_market/components/UI/item_card.dart';
 
 class CategoryScreen extends StatelessWidget {
   static const id = 'category_screen';

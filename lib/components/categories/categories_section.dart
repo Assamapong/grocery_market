@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_market/components/section.dart';
+import 'package:grocery_market/components/UI/section.dart';
 import 'category.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
