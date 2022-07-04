@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:grocery_market/components/signup_screen.dart';
+import 'package:grocery_market/screens/signin_screen.dart';
 
-class SigninScreen extends StatelessWidget {
+class SignUpScreen extends StatelessWidget {
   final String title;
 
-  SigninScreen({required this.title});
+  SignUpScreen({required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -33,19 +33,21 @@ class SigninScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Sign in',
+            'Sign up',
             style: TextStyle(fontSize: 40),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Don't have account?"),
+              Text('Have account?'),
               TextButton(
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SignUpScreen(title: 'GroceryMarket'),
+                      builder: (context) => SigninScreen(
+                        title: 'GroceryMarket',
+                      ),
                     ),
                   );
                 },

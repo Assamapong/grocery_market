@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "213704139255",
+    "project_id": "grocery-market-5f7bb",
+    "storage_bucket": "grocery-market-5f7bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213704139255:android:6564258a7134e79c4fcef2",
+        "android_client_info": {
+          "package_name": "com.biley.grocery_market"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213704139255-9j792o9injp3ccgnrsou83dhp3hmmu8g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.biley.grocery_market",
+            "certificate_hash": "8b479b176a286be93b19b814fc964a1a3156ec52"
+          }
+        },
+        {
+          "client_id": "213704139255-04ui0a5g44t6b9rrc99g8b9e98g5a77b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYMd5ShN5pcuEe6re2ZcO83h3KEtI3VhY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213704139255-04ui0a5g44t6b9rrc99g8b9e98g5a77b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "213704139255-19r3ngu3337b6vh2qam3pios5e9rlktc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.biley.groceryMarket"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
