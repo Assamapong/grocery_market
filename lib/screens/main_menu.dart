@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:grocery_market/screens/signin_screen.dart';
 import 'package:grocery_market/screens/signup_screen.dart';
 import 'package:grocery_market/components/categories/categories_section.dart';
 import 'package:grocery_market/components/shopping_list/shopping_list.dart';
@@ -46,12 +49,35 @@ class _MainMenuState extends State<MainMenu> {
           widget.title,
           style: TextStyle(fontSize: 20),
         ),
-        actions: const [
+        actions: [
           Padding(
             padding: EdgeInsets.only(right: 15.0),
-            child: Icon(
-              FontAwesomeIcons.magnifyingGlass,
-              color: Colors.black,
+            child: GestureDetector(
+              onTap: () async {
+                final GoogleSignIn googleSignIn = GoogleSignIn();
+
+                try {
+                  await googleSignIn.signOut();
+                  await FirebaseAuth.instance.signOut();
+                } catch (e) {
+                  // ScaffoldMessenger.of(context).showSnackBar(
+                  //   Authentication.customSnackBar(
+                  //     content: 'Error signing out. Try again.',
+                  //   ),
+                  // );
+                  print(e);
+                }
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (builder) => SigninScreen(title: 'GroceryMarket'),
+                  ),
+                );
+              },
+              child: Icon(
+                FontAwesomeIcons.doorOpen,
+                color: Colors.black,
+              ),
             ),
           )
         ],

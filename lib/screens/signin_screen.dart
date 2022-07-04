@@ -99,13 +99,13 @@ class SigninScreen extends StatelessWidget {
                     buttonText: 'Login with Google',
                     ontap: () async {
                       await _signInWithGoogle();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              MainMenu(title: 'Grocery Market'),
-                        ),
-                      );
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                MainMenu(title: 'Grocery Market'),
+                          ),
+                          (route) => false);
                     }),
                 SocialButton(
                     buttonColor: Colors.blue,
