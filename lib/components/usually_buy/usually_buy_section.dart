@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_market/components/section.dart';
 import 'package:grocery_market/model/product_list.dart';
-import 'item_card.dart';
+import '../item_card.dart';
 
 class UsuallyBuySection extends StatelessWidget {
   List<Widget> getUsuallyBuyProducts() {
