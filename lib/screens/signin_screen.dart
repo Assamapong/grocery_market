@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:grocery_market/components/SocialButton.dart';
 import 'package:grocery_market/screens/main_menu.dart';
@@ -28,6 +29,18 @@ class SigninScreen extends StatelessWidget {
 
       // Once signed in, return the UserCredential
       return await FirebaseAuth.instance.signInWithCredential(credential);
+    }
+
+    Future<UserCredential> signInWithFacebook() async {
+      // Trigger the sign-in flow
+      final LoginResult loginResult = await FacebookAuth.instance.login();
+
+      // Create a credential from the access token
+      final OAuthCredential facebookAuthCredential =
+          FacebookAuthProvider.credential(loginResult.accessToken!.token);
+
+      // Once signed in, return the UserCredential
+      return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
     }
 
     return Scaffold(
@@ -111,7 +124,16 @@ class SigninScreen extends StatelessWidget {
                     buttonColor: Colors.blue,
                     buttonLogo: AssetImage('images/google_logo.png'),
                     buttonText: 'Login with Facebook',
-                    ontap: () {}),
+                    ontap: () async {
+                      await signInWithFacebook();
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                MainMenu(title: 'Grocery Market'),
+                          ),
+                          (route) => false);
+                    }),
                 SocialButton(
                     buttonColor: Colors.green,
                     buttonLogo: AssetImage('images/google_logo.png'),

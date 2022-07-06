@@ -58,18 +58,24 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
+                <string>fb565688375187509</string>
                 <string>com.googleusercontent.apps.213704139255-19r3ngu3337b6vh2qam3pios5e9rlktc</string>
             </array>
         </dict>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>***Something here***</string>
-            </array>
-        </dict>
-    </array>
 
+    </array>
+    <key>FacebookAppID</key>
+    <string>565688375187509</string>
+    <key>FacebookClientToken</key>
+    <string>8e0a8d129c02366f8b417e264e3cbe97</string>
+    <key>FacebookDisplayName</key>
+    <string>Grocery Market</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>fbapi</string>
+      <string>fb-messenger-share-api</string>
+      <string>fbauth2</string>
+      <string>fbshareextension</string>
+    </array>
 </dict>
 </plist>
