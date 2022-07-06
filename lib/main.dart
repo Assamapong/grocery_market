@@ -22,8 +22,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<Order>(
-      create: (context) => Order(),
+    return MultiProvider(
+      providers: [
+        Provider<Order>(
+          create: (context) => Order(),
+        ),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
